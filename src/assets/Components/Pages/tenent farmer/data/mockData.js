@@ -1,0 +1,252 @@
+const cropImage = '/crop-paddy.jpg';
+
+export const mockTenantFarmer = {
+  farmerName: 'Ravi Teja',
+  name: 'Ravi Teja',
+  farmerType: 'Tenant Farmer',
+  role: 'Tenant Farmer',
+  farmerId: 'TF-1082',
+  mobileNumber: '+91 98490 12345',
+  village: 'Chevella',
+  district: 'Rangareddy',
+  state: 'Telangana',
+  experience: '8 years',
+  profileImage: '/ramu-naik.jpg',
+};
+
+export const mockLeases = [
+  {
+    leaseId: 'LSE-2041',
+    landName: 'North Field',
+    surveyNumber: 'SY-42/A',
+    landOwnerName: 'Narayana Rao',
+    landOwnerContact: '+91 98480 12345',
+    area: 2.5,
+    areaUnit: 'Acres',
+    rentPerAcre: 9000,
+    totalLeaseRent: 22500,
+    monthlyRent: 11250,
+    soilType: 'Fertile loam',
+    irrigationType: 'Borewell',
+    leasePeriod: 'Jun 2025 – May 2027',
+    location: 'Vikarabad',
+    cropAssociated: 'Paddy',
+    leaseStatus: 'Active',
+    image: cropImage,
+    description: 'Leased paddy field with reliable borewell irrigation.',
+  },
+  {
+    leaseId: 'LSE-2042',
+    landName: 'East Field',
+    surveyNumber: 'SY-18/B',
+    landOwnerName: 'Lakshmi Devi',
+    landOwnerContact: '+91 98480 12346',
+    area: 2,
+    areaUnit: 'Acres',
+    rentPerAcre: 8500,
+    totalLeaseRent: 17000,
+    monthlyRent: 8500,
+    soilType: 'Red sandy loam',
+    irrigationType: 'Canal',
+    leasePeriod: 'Jul 2025 – Jun 2027',
+    location: 'Sangareddy',
+    cropAssociated: 'Maize',
+    leaseStatus: 'Active',
+    image: '/crop-maize.jpg',
+    description: 'Well-connected field suitable for maize and seasonal crops.',
+  },
+];
+
+export const mockCrops = [
+  {
+    cropId: 'CRP-301',
+    cropName: 'Paddy',
+    name: 'Paddy',
+    cropCategory: 'Grains & Cereals',
+    landName: 'North Field (2.5 Acres)',
+    areaCultivated: 2.5,
+    area: '2.5 Acres',
+    season: 'Kharif',
+    sowingDate: '12 Jun 2025',
+    expectedHarvestDate: 'Oct 2025',
+    expectedHarvest: 'Oct 2025',
+    cropStage: 'Tillering',
+    stage: 'Tillering',
+    cropStatus: 'Healthy',
+    progress: 58,
+    expectedYield: '32 Quintals',
+    image: cropImage,
+    notes: 'Crop is healthy. Continue scheduled irrigation and monitor for pests.',
+  },
+  {
+    cropId: 'CRP-302',
+    cropName: 'Maize',
+    name: 'Maize',
+    cropCategory: 'Grains & Cereals',
+    landName: 'East Field (2.0 Acres)',
+    areaCultivated: 2,
+    area: '2.0 Acres',
+    season: 'Kharif',
+    sowingDate: '20 Jun 2025',
+    expectedHarvestDate: 'Nov 2025',
+    expectedHarvest: 'Nov 2025',
+    cropStage: 'Vegetative growth',
+    stage: 'Vegetative growth',
+    cropStatus: 'Healthy',
+    progress: 42,
+    expectedYield: '28 Quintals',
+    image: '/crop-maize.jpg',
+    notes: 'Maintain the nutrient schedule and inspect leaves weekly.',
+  },
+];
+
+export const mockUpcomingTasks = [
+  {
+    taskId: 'TSK-501',
+    taskTitle: 'Water North Field',
+    task: 'Water North Field',
+    relatedCrop: 'Paddy',
+    relatedLand: 'North Field',
+    scheduledDate: 'Tomorrow',
+    scheduledTime: '8:00 AM',
+    due: 'Tomorrow',
+    taskStatus: 'Pending',
+    priority: 'High',
+    type: 'watering',
+  },
+  {
+    taskId: 'TSK-502',
+    taskTitle: 'Apply organic fertilizer',
+    task: 'Apply organic fertilizer',
+    relatedCrop: 'Maize',
+    relatedLand: 'East Field',
+    scheduledDate: 'Friday',
+    scheduledTime: '9:30 AM',
+    due: 'Friday',
+    taskStatus: 'Pending',
+    priority: 'Medium',
+    type: 'fertilizer',
+  },
+  {
+    taskId: 'TSK-503',
+    taskTitle: 'Inspect crop health',
+    task: 'Inspect crop health',
+    relatedCrop: 'Paddy',
+    relatedLand: 'North Field',
+    scheduledDate: 'Saturday',
+    scheduledTime: '7:30 AM',
+    due: 'Saturday',
+    taskStatus: 'Completed',
+    priority: 'Low',
+    type: 'testing',
+  },
+];
+
+export const mockSeasonalEarnings = [
+  { month: 'Jan', amount: 15500 },
+  { month: 'Feb', amount: 18200 },
+  { month: 'Mar', amount: 17400 },
+  { month: 'Apr', amount: 20100 },
+  { month: 'May', amount: 22300 },
+  { month: 'Jun', amount: 25000 },
+];
+
+export const mockLandUsage = [
+  { crop: 'Paddy', acres: 2.5 },
+  { crop: 'Maize', acres: 1.5 },
+  { crop: 'Fallow', acres: 0.5 },
+];
+
+export const mockRecentlyViewedLand = [
+  {
+    landId: 'LAND-701',
+    landName: 'Green Valley Plot',
+    area: 3,
+    areaUnit: 'Acres',
+    location: 'Vikarabad',
+    soilType: 'Fertile loam',
+    rentPerAcre: 9000,
+    status: 'Available',
+    image: '/cover-banner.jpg',
+  },
+  {
+    landId: 'LAND-702',
+    landName: 'Medak Farm Parcel',
+    area: 2.5,
+    areaUnit: 'Acres',
+    location: 'Medak',
+    soilType: 'Red soil',
+    rentPerAcre: 8200,
+    status: 'Available',
+    image: '/gis-satellite-map.jpg',
+  },
+  {
+    landId: 'LAND-703',
+    landName: 'Canal Side Field',
+    area: 4,
+    areaUnit: 'Acres',
+    location: 'Sangareddy',
+    soilType: 'Alluvial',
+    rentPerAcre: 9500,
+    status: 'Available',
+    image: '/crop-maize.jpg',
+  },
+];
+
+export const mockFarmerNotifications = [
+  {
+    id: 'NTF-101',
+    category: 'payment',
+    title: 'Lease payment received',
+    description: 'Your payment for North Field was recorded.',
+    timestamp: 'Today',
+    read: false,
+  },
+  {
+    id: 'NTF-102',
+    category: 'land',
+    title: 'New land parcel available',
+    description: 'A 3-acre parcel is available for lease in Vikarabad.',
+    timestamp: 'Yesterday',
+    read: false,
+  },
+  {
+    id: 'NTF-103',
+    category: 'market',
+    title: 'Paddy price update',
+    description: 'The local modal price for paddy has increased this week.',
+    timestamp: '2 days ago',
+    read: true,
+  },
+];
+
+export const mockMarketPrices = [
+  { market: 'Vikarabad', crop: 'Paddy', modalPrice: 2380, unit: 'Quintal', change: '+2.4%', trend: 'up' },
+  { market: 'Sangareddy', crop: 'Maize', modalPrice: 2150, unit: 'Quintal', change: '+1.2%', trend: 'up' },
+  { market: 'Warangal', crop: 'Cotton', modalPrice: 7120, unit: 'Quintal', change: '-0.8%', trend: 'down' },
+];
+
+export const mockEquipmentList = [
+  { id: 'EQ-201', category: 'Tractor', name: 'Mahindra 575 DI', location: 'Chevella', ratePerHour: 850, available: true },
+  { id: 'EQ-202', category: 'Drone', name: 'Agricultural Spray Drone', location: 'Vikarabad', ratePerHour: 1200, available: true },
+  { id: 'EQ-203', category: 'Harvester', name: 'Combine Harvester', location: 'Sangareddy', ratePerHour: 1800, available: false },
+];
+
+export const mockFarmerMessages = [
+  {
+    id: 'MSG-301',
+    sender: 'Narayana Rao',
+    avatar: '/ramu-naik.jpg',
+    lastMessage: 'The lease receipt is ready.',
+    timestamp: '11:30 AM',
+    unread: 1,
+  },
+  {
+    id: 'MSG-302',
+    sender: 'Agriculture Officer',
+    avatar: '/raithanna-logo.png',
+    lastMessage: 'Your soil test report is available.',
+    timestamp: 'Yesterday',
+    unread: 0,
+  },
+];

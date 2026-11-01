@@ -214,6 +214,10 @@
   color: #92978d;
 }
 
+.auth-page input:focus-visible {
+  outline: none;
+}
+
 .search-box button {
   display: grid;
   flex-shrink: 0;
