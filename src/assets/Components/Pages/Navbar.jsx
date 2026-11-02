@@ -41,6 +41,9 @@ function Navbar({
   onSwitchRole,
   searchQuery,
   onSearchChange,
+  serviceProviderPage = false,
+  providerName,
+  userRole,
 }) {
   const [languageOpen, setLanguageOpen] = useState(false)
   const [language, setLanguage] = useState('English')
@@ -49,7 +52,7 @@ function Navbar({
   if (role) {
     return (
       <header className="sticky top-0 z-30 border-b border-[#e1ebe2] bg-white/95 shadow-sm backdrop-blur">
-        <div className="mx-auto flex min-h-[76px] max-w-[1600px] flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-7 lg:flex-nowrap lg:gap-x-5 lg:px-10">
+        <div className="flex w-full min-h-[76px] flex-wrap items-center gap-x-4 gap-y-3 px-4 py-3 sm:px-7 lg:flex-nowrap lg:gap-x-5 lg:px-10">
           <div className="flex min-w-0 flex-1 items-center gap-3 lg:flex-none">
             <a href="#overview" aria-label="Raithanna dashboard" className="shrink-0">
               <img className="h-12 w-[86px] object-contain" src="/raithanna-logo.png" alt="Raithanna" />
@@ -74,11 +77,15 @@ function Navbar({
 
           <nav
             aria-label="Switch dashboard"
-            className="order-3 flex w-full items-center justify-start gap-1 overflow-x-auto pb-0.5 lg:order-none lg:w-auto lg:flex-1 lg:justify-center lg:gap-2"
+            className={`order-3 flex w-full items-center justify-start gap-1 overflow-x-auto pb-0.5 lg:order-none lg:w-auto lg:flex-1 ${
+              serviceProviderPage ? 'lg:justify-center lg:gap-1' : 'lg:justify-center lg:gap-2'
+            }`}
           >
             {dashboardRoles.filter((dashboardRole) => dashboardRole !== role).map((dashboardRole) => (
               <button
-                className="shrink-0 rounded-full px-3 py-2 text-xs font-semibold text-[#526258] transition-colors hover:bg-[#eff7f0] hover:text-[#17613c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17613c] sm:px-4 sm:text-sm"
+                className={`shrink-0 rounded-full py-2 text-xs font-semibold text-[#526258] transition-colors hover:bg-[#eff7f0] hover:text-[#17613c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17613c] sm:text-sm ${
+                  serviceProviderPage ? 'px-2 lg:px-2.5' : 'px-3 sm:px-4'
+                }`}
                 type="button"
                 onClick={() => onSwitchRole(dashboardRole)}
                 key={dashboardRole}
@@ -145,8 +152,12 @@ function Navbar({
               {profileOpen && (
                 <div role="menu" aria-label="Profile menu" className="absolute right-0 top-[calc(100%+8px)] z-40 min-w-48 rounded-xl border border-[#e2e9e2] bg-white p-2 shadow-lg">
                   <div className="border-b border-[#edf2ed] px-3 py-2">
-                    <p className="text-sm font-semibold text-[#263b2d]">My profile</p>
-                    <p className="mt-0.5 text-xs text-[#748076]">{role}</p>
+                    <p className="text-sm font-semibold text-[#263b2d]">
+                      {serviceProviderPage ? providerName || 'My profile' : 'My profile'}
+                    </p>
+                    <p className="mt-0.5 text-xs text-[#748076]">
+                      {serviceProviderPage ? userRole || role : role}
+                    </p>
                   </div>
                   <button
                     type="button"

@@ -1,0 +1,11 @@
+export { default as Dashboard } from './Dashboard.jsx'
+export { default as MyServicesAndFleet } from './MyServicesAndFleet.jsx'
+export { default as BookingRequests } from './BookingRequests.jsx'
+export { default as ServiceSchedule } from './ServiceSchedule.jsx'
+export { default as FleetMaintenance } from './FleetMaintenance.jsx'
+export { default as ReportsAndAnalytics } from './ReportsAndAnalytics.jsx'
+export { default as PaymentsAndInvoices } from './PaymentsAndInvoices.jsx'
+export { default as Messages } from './Messages.jsx'
+export { default as Notifications } from './Notifications.jsx'
+export { default as Settings } from './Settings.jsx'
+

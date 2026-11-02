@@ -58,14 +58,15 @@ const menuByRole = {
   ],
   'Service Provider': [
     { label: 'Dashboard', href: '#overview', icon: 'dashboard' },
-    { label: 'My Services', href: '#categories', icon: 'briefcase' },
-    { label: 'Bookings', href: '#schedule', icon: 'calendar' },
-    { label: 'Equipment & Tools', href: '#equipment-tools', icon: 'package' },
-    { label: 'Service Requests', href: '#service-requests', icon: 'file' },
-    { label: 'Earnings & Payments', href: '#earnings-overview', icon: 'invoice' },
-    { label: 'Reviews & Ratings', href: '#reviews-ratings', icon: 'star' },
+    { label: 'My Services & Fleet', href: '#categories', icon: 'briefcase', badge: 5 },
+    { label: 'Booking Requests', href: '#booking-requests', icon: 'users', badge: 3 },
+    { label: 'Service Schedule', href: '#schedule', icon: 'calendar' },
+    { label: 'Fleet Maintenance', href: '#fleet-maintenance', icon: 'package' },
+    { label: 'Reports & Analytics', href: '#reports-analytics', icon: 'barChart' },
+    { label: 'Payments & Invoices', href: '#payments-invoices', icon: 'invoice' },
     { label: 'Messages', href: '#messages', icon: 'message', badge: 2 },
-    { label: 'Notifications', href: '#notifications', icon: 'bell', badge: 5 },
+    { label: 'Notifications', href: '#notifications', icon: 'bell', badge: 4 },
+    { label: 'Settings', href: '#settings', icon: 'settings' },
   ],
 }
 
@@ -206,6 +207,11 @@ function SidebarIcon({ name, active }) {
         <path d="M8 3v4M16 3v4M3 10h18" />
       </svg>
     ),
+    wrench: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={common}>
+        <path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 18l3 3 5.3-5.3a5 5 0 0 0 6.4-6.4L14 13l-3-3 3.7-3.7Z" />
+      </svg>
+    ),
     layers: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={common}>
         <path d="m12 3 9 5-9 5-9-5 9-5Z" />
@@ -217,8 +223,8 @@ function SidebarIcon({ name, active }) {
   return icons[name] || icons.dashboard
 }
 
-function Sidebar({ role, activeRoute, onNavigate }) {
-  const menuItems = menuByRole[role] || menuByRole.Farmer
+function Sidebar({ role, activeRoute, onNavigate, navigationItems, onAddService }) {
+  const menuItems = navigationItems || menuByRole[role] || menuByRole.Farmer
   const roleTitle = role === 'Landlord Farmer' ? 'LANDLORD' : role.toUpperCase()
 
   return (
@@ -234,7 +240,7 @@ function Sidebar({ role, activeRoute, onNavigate }) {
       </div>
 
       <nav id="dashboard-sidebar" aria-label={`${role} menu`} className="space-y-1">
-        {menuItems.map(({ label, href, icon, badge, type }, index) => {
+        {menuItems.map(({ id, label, href, icon, badge, type }, index) => {
           if (type === 'section') {
             return (
               <p
@@ -261,6 +267,25 @@ function Sidebar({ role, activeRoute, onNavigate }) {
               )}
             </>
           )
+
+          if (navigationItems) {
+            const active = activeRoute === id
+            return (
+              <button
+                type="button"
+                key={id}
+                aria-current={active ? 'page' : undefined}
+                onClick={() => onNavigate?.(id)}
+                className={`group flex min-h-[44px] w-full items-center gap-2 rounded-xl px-3 text-left transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#17613c] ${
+                  active
+                    ? 'bg-[#1b7f45] text-white shadow-sm'
+                    : 'text-[#2f3f37] hover:bg-[#edf6f0] hover:text-[#1d5f3e]'
+                }`}
+              >
+                {itemContent(active)}
+              </button>
+            )
+          }
 
           if (role === 'Buyer') {
             return (
@@ -305,6 +330,15 @@ function Sidebar({ role, activeRoute, onNavigate }) {
           )
         })}
       </nav>
+      {onAddService && (
+        <button
+          type="button"
+          onClick={onAddService}
+          className="mt-4 flex min-h-[44px] w-full items-center justify-center rounded-xl border border-[#b8d7c1] bg-[#f4faf5] px-3 text-sm font-semibold text-[#17613c] transition hover:bg-[#e8f5e9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17613c]"
+        >
+          Add Service or Equipment
+        </button>
+      )}
     </aside>
   )
 }
