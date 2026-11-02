@@ -1,4 +1,5 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function HelpAndSupport({ language = 'en', t = (text) => translate(language, text) }) {
   const faqs = [
@@ -8,14 +9,14 @@ function HelpAndSupport({ language = 'en', t = (text) => translate(language, tex
   ]
 
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Assistance & Customer Care')}</span>
         <h1>{t('Help & Support')}</h1>
         <p>{t('24/7 dedicated farmer helpline, app troubleshooting guides, FAQs, and ticket resolution.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Helpline Number')}</span>
           <strong style={{ fontSize: '18px', color: '#21864b' }}>1800-180-1551</strong>
@@ -38,11 +39,11 @@ function HelpAndSupport({ language = 'en', t = (text) => translate(language, tex
         </article>
       </div>
 
-      <div className="role-dashboard__section-heading">
+      <div className={styles.sectionHeading}>
         <h2>{t('Frequently Asked Questions')}</h2>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         {faqs.map((faq) => (
           <article key={faq.q}>
             <span className="role-dashboard__card-icon">❓</span>

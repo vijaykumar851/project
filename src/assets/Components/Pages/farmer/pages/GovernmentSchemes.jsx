@@ -1,4 +1,5 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function GovernmentSchemes({ language = 'en', t = (text) => translate(language, text) }) {
   const schemes = [
@@ -9,14 +10,14 @@ function GovernmentSchemes({ language = 'en', t = (text) => translate(language, 
   ]
 
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Public Benefits & Subsidies')}</span>
         <h1>{t('Government Schemes')}</h1>
         <p>{t('Direct Benefit Transfers, state agricultural incentives, and input subsidy applications.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Active Schemes')}</span>
           <strong>4 Enrolled</strong>
@@ -39,7 +40,7 @@ function GovernmentSchemes({ language = 'en', t = (text) => translate(language, 
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+      <div className={styles.cards2}>
         {schemes.map((s) => (
           <article key={s.title}>
             <span className="role-dashboard__card-icon">🏛</span>

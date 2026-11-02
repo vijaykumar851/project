@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function ExpertSupport({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Agronomists & Scientists')}</span>
         <h1>{t('Expert Support')}</h1>
         <p>{t('Connect directly with PJTSAU agricultural university professors, KVK scientists, and soil experts.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Available Experts')}</span>
           <strong>14 Online</strong>
@@ -32,7 +33,7 @@ function ExpertSupport({ language = 'en', t = (text) => translate(language, text
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         <article>
           <span className="role-dashboard__card-icon">📞</span>
           <h3>{t('Call an Agronomist')}</h3>

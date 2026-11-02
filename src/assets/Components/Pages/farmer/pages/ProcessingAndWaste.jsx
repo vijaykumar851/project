@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function ProcessingAndWaste({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Circular Agriculture')}</span>
         <h1>{t('Processing & Waste')}</h1>
         <p>{t('Value addition, grain drying, chaff composting, and biogas renewable energy production.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Compost Heap')}</span>
           <strong>2.5 Tons</strong>
@@ -32,7 +33,7 @@ function ProcessingAndWaste({ language = 'en', t = (text) => translate(language,
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+      <div className={styles.cards2}>
         <article>
           <span className="role-dashboard__card-icon">♻️</span>
           <h3>{t('Vermicompost & Manure Unit')}</h3>

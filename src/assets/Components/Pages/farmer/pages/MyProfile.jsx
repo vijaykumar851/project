@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function MyProfile({ language = 'en', userName = 'User', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Account & Personal Information')}</span>
         <h1>{userName}&apos;s {t('Profile')}</h1>
         <p>{t('Manage your farmer identity, verified credentials, and farm contact details.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Total Land')}</span>
           <strong>12.5</strong>
@@ -32,7 +33,7 @@ function MyProfile({ language = 'en', userName = 'User', t = (text) => translate
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+      <div className={styles.cards2}>
         <article>
           <span className="role-dashboard__card-icon">👤</span>
           <h3>{t('Personal Details')}</h3>

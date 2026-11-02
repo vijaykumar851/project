@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function SmartFarming({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('IoT Sensors & Precision Tech')}</span>
         <h1>{t('Smart Farming (IoT)')}</h1>
         <p>{t('Real-time soil sensors, automated pump telemetry, drone multispectral imagery, and weather telemetry.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Active IoT Nodes')}</span>
           <strong style={{ color: '#21864b' }}>4 Connected</strong>
@@ -32,7 +33,7 @@ function SmartFarming({ language = 'en', t = (text) => translate(language, text)
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+      <div className={styles.cards2}>
         <article>
           <span className="role-dashboard__card-icon">📡</span>
           <h3>{t('Field Sensor Network')}</h3>

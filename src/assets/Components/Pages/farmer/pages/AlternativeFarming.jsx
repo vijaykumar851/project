@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function AlternativeFarming({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Modern & Sustainable Agriculture')}</span>
         <h1>{t('Alternative Farming')}</h1>
         <p>{t('Hydroponics, mushroom culture, organic bee apiary, and zero-budget natural farming practices.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Polyhouse')}</span>
           <strong>1,000 m²</strong>
@@ -32,7 +33,7 @@ function AlternativeFarming({ language = 'en', t = (text) => translate(language,
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         <article>
           <span className="role-dashboard__card-icon">🌱</span>
           <h3>{t('Hydroponic Vegetables')}</h3>

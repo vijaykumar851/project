@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function PoultryAndAquaculture({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Allied Agro Activities')}</span>
         <h1>{t('Poultry & Aquaculture')}</h1>
         <p>{t('Flock management, daily egg count, fishery pond water quality, and feed conversion ratios.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Total Birds')}</span>
           <strong>250</strong>
@@ -32,7 +33,7 @@ function PoultryAndAquaculture({ language = 'en', t = (text) => translate(langua
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+      <div className={styles.cards2}>
         <article>
           <span className="role-dashboard__card-icon">🐔</span>
           <h3>{t('Poultry Shed Status')}</h3>

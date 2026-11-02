@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function MarketplaceAndOrders({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Direct Produce Commerce')}</span>
         <h1>{t('Marketplace & Orders')}</h1>
         <p>{t('List harvested produce, negotiate direct prices with wholesale buyers, and verify digital payments.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Active Listings')}</span>
           <strong>3 Items</strong>
@@ -32,7 +33,7 @@ function MarketplaceAndOrders({ language = 'en', t = (text) => translate(languag
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         <article>
           <span className="role-dashboard__card-icon">🌾</span>
           <h3>{t('Paddy (100 Bags / 50 Quintals)')}</h3>

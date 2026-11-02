@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function LivestockAndDairy({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Animal Husbandry')}</span>
         <h1>{t('Livestock & Dairy')}</h1>
         <p>{t('Daily milk yields, cattle health cards, feed nutrition, and vaccination milestones.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Total Cattle')}</span>
           <strong>8</strong>
@@ -32,7 +33,7 @@ function LivestockAndDairy({ language = 'en', t = (text) => translate(language, 
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         <article>
           <span className="role-dashboard__card-icon">🐄</span>
           <h3>{t('Murrah & Jersey Cows')}</h3>

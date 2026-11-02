@@ -1,4 +1,5 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function InventoryAndSupplies({ language = 'en', t = (text) => translate(language, text) }) {
   const stockItems = [
@@ -9,14 +10,14 @@ function InventoryAndSupplies({ language = 'en', t = (text) => translate(languag
   ]
 
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Storage & Inputs')}</span>
         <h1>{t('Inventory & Supplies')}</h1>
         <p>{t('Track on-farm reserves of seeds, organic fertilizers, veterinary feed, and field chemicals.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Total Items')}</span>
           <strong>24</strong>
@@ -39,7 +40,7 @@ function InventoryAndSupplies({ language = 'en', t = (text) => translate(languag
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+      <div className={styles.cards2}>
         {stockItems.map((item) => (
           <article key={item.name}>
             <span className="role-dashboard__card-icon">📦</span>

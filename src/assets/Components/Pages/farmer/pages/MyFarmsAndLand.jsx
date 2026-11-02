@@ -1,4 +1,5 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function MyFarmsAndLand({ language = 'en', t = (text) => translate(language, text) }) {
   const farmList = [
@@ -8,14 +9,14 @@ function MyFarmsAndLand({ language = 'en', t = (text) => translate(language, tex
   ]
 
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Land Holdings & Properties')}</span>
         <h1>{t('My Farms & Land')}</h1>
         <p>{t('Overview of registered parcels, soil types, boundary surveys, and ownership deeds.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Total Parcels')}</span>
           <strong>3</strong>
@@ -38,12 +39,12 @@ function MyFarmsAndLand({ language = 'en', t = (text) => translate(language, tex
         </article>
       </div>
 
-      <div className="role-dashboard__section-heading">
+      <div className={styles.sectionHeading}>
         <h2>{t('Registered Plots')}</h2>
-        <button type="button" className="role-dashboard__card-link">+ {t('Add New Land Parcel')}</button>
+        <button type="button" className={styles.cardLink}>+ {t('Add New Land Parcel')}</button>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         {farmList.map((farm) => (
           <article key={farm.name}>
             <span className="role-dashboard__card-icon">♧</span>

@@ -1,4 +1,5 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function Notifications({ language = 'en', t = (text) => translate(language, text) }) {
   const notifList = [
@@ -9,14 +10,14 @@ function Notifications({ language = 'en', t = (text) => translate(language, text
   ]
 
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Alerts & Updates')}</span>
         <h1>{t('Notifications')}</h1>
         <p>{t('Stay informed about subsidy credits, mandi market bids, weather advisories, and task reminders.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Unread Alerts')}</span>
           <strong style={{ color: '#dc2626' }}>3</strong>
@@ -39,12 +40,12 @@ function Notifications({ language = 'en', t = (text) => translate(language, text
         </article>
       </div>
 
-      <div className="role-dashboard__section-heading">
+      <div className={styles.sectionHeading}>
         <h2>{t('Recent Notifications')}</h2>
-        <button type="button" className="role-dashboard__card-link">{t('Mark all as read')}</button>
+        <button type="button" className={styles.cardLink}>{t('Mark all as read')}</button>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: '1fr' }}>
+      <div className={styles.cards1}>
         {notifList.map((n) => (
           <article key={n.title} style={{ minHeight: 'auto', padding: '16px 20px', borderLeft: n.unread ? '4px solid #21864b' : '1px solid #e4ebe5' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '6px' }}>

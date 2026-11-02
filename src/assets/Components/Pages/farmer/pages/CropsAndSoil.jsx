@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function CropsAndSoil({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Agronomy & Earth Health')}</span>
         <h1>{t('Crops & Soil')}</h1>
         <p>{t('Monitor crop life cycles, schedule soil nutrition tests, and track organic amendments.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('Active Crops')}</span>
           <strong>5</strong>
@@ -32,7 +33,7 @@ function CropsAndSoil({ language = 'en', t = (text) => translate(language, text)
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         <article>
           <span className="role-dashboard__card-icon">🌾</span>
           <h3>{t('Paddy (Telangana Sona)')}</h3>

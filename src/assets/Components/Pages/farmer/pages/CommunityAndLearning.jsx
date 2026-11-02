@@ -1,15 +1,16 @@
 import { translateDashboard as translate } from '../../../../../dashboardTranslations.js'
+import { farmerPageStyles as styles } from './farmerPageStyles.js'
 
 function CommunityAndLearning({ language = 'en', t = (text) => translate(language, text) }) {
   return (
-    <div className="role-dashboard__content">
-      <div className="role-dashboard__welcome">
+    <div className={styles.content}>
+      <div className={styles.welcome}>
         <span>{t('Farmer Producer Network')}</span>
         <h1>{t('Community & Learning')}</h1>
         <p>{t('Share knowledge with 10,000+ local farmers, attend field demonstration days, and watch training modules.')}</p>
       </div>
 
-      <div className="role-dashboard__stats">
+      <div className={styles.stats}>
         <article>
           <span>{t('FPO Membership')}</span>
           <strong style={{ color: '#21864b' }}>{t('Rangareddy FPO')}</strong>
@@ -32,7 +33,7 @@ function CommunityAndLearning({ language = 'en', t = (text) => translate(languag
         </article>
       </div>
 
-      <div className="role-dashboard__cards" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
+      <div className={styles.cards3}>
         <article>
           <span className="role-dashboard__card-icon">💬</span>
           <h3>{t('Farmer Forum')}</h3>
